@@ -1,0 +1,777 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Khushi 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Poppins,sans-serif;
+    color:white;
+    background:#35172f;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background:
+    radial-gradient(circle at 15% 15%,#ff5aa655,transparent 28%),
+    radial-gradient(circle at 85% 25%,#ffb6dc44,transparent 28%),
+    radial-gradient(circle at 50% 90%,#c84cff44,transparent 35%),
+    linear-gradient(135deg,#30152c,#792b5b,#3c1936);
+    animation:bgMove 8s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove{
+    from{filter:hue-rotate(0deg)}
+    to{filter:hue-rotate(12deg)}
+}
+
+section{
+    min-height:100vh;
+    padding:70px 15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.card{
+    width:min(700px,95vw);
+    padding:42px 25px;
+    text-align:center;
+
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:30px;
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 25px 80px rgba(0,0,0,.35),
+    inset 0 1px rgba(255,255,255,.15);
+}
+
+h1,h2{
+    font-family:"DM Serif Display",serif;
+    color:#ffd7e9;
+    line-height:1.1;
+}
+
+h1{
+    font-size:clamp(48px,11vw,82px);
+}
+
+h2{
+    font-size:clamp(36px,8vw,58px);
+    margin-bottom:20px;
+}
+
+p{
+    color:rgba(255,255,255,.86);
+    line-height:1.8;
+}
+
+.bigText{
+    max-width:580px;
+    margin:20px auto 30px;
+    font-size:16px;
+}
+
+.heart{
+    font-size:65px;
+    margin-bottom:12px;
+    animation:heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat{
+    0%,100%{transform:scale(1)}
+    20%{transform:scale(1.16)}
+    40%{transform:scale(1)}
+    60%{transform:scale(1.1)}
+}
+
+button{
+    border:0;
+    padding:14px 25px;
+    margin:8px;
+    border-radius:50px;
+
+    background:linear-gradient(90deg,#ff4699,#ff78b8);
+    color:white;
+
+    font-family:Poppins,sans-serif;
+    font-weight:700;
+
+    cursor:pointer;
+    transition:.25s;
+
+    box-shadow:0 10px 30px rgba(255,60,150,.35);
+}
+
+button:hover{
+    transform:translateY(-4px) scale(1.03);
+}
+
+.quote{
+    margin:25px auto;
+    padding:22px;
+
+    border-left:3px solid #ff70ad;
+    border-radius:12px;
+
+    background:rgba(255,255,255,.07);
+
+    color:#ffe3ef;
+
+    font-family:"DM Serif Display",serif;
+    font-size:21px;
+    line-height:1.5;
+}
+
+/* REASONS */
+
+.reasons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin:25px 0;
+}
+
+.reason{
+    text-align:left;
+    padding:20px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.13);
+
+    transition:.3s;
+}
+
+.reason:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,.14);
+}
+
+.reason h3{
+    color:#ffd2e6;
+    margin-bottom:8px;
+}
+
+.reason p{
+    font-size:12px;
+    line-height:1.7;
+}
+
+/* GALLERY */
+
+.gallery{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin:25px 0;
+}
+
+.photo{
+    overflow:hidden;
+    border-radius:20px;
+
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.photo img{
+    display:block;
+    width:100%;
+    height:270px;
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+.photo:hover img{
+    transform:scale(1.06);
+}
+
+.photo:first-child{
+    grid-column:span 2;
+}
+
+.photo:first-child img{
+    height:350px;
+}
+
+.caption{
+    padding:11px;
+    color:#ffe0ed;
+    font-size:12px;
+}
+
+/* MUSIC */
+
+.musicBox{
+    margin-top:25px;
+    padding:20px;
+
+    border-radius:20px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+}
+
+.musicIcon{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+/* CONFETTI */
+
+#confetti{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:99999;
+    display:none;
+}
+
+.confettiPiece{
+    position:absolute;
+    top:-20px;
+    width:8px;
+    height:15px;
+
+    animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:
+        translateY(110vh)
+        rotate(720deg);
+        opacity:0;
+    }
+}
+
+/* QR */
+
+.qrBox{
+    width:max-content;
+    max-width:100%;
+    padding:20px;
+
+    margin:25px auto;
+
+    background:white;
+    border-radius:22px;
+}
+
+#qrcode img{
+    display:block;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    section{
+        padding:55px 12px;
+    }
+
+    .card{
+        padding:35px 17px;
+    }
+
+    .reasons,
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .photo:first-child{
+        grid-column:auto;
+    }
+
+    .photo img,
+    .photo:first-child img{
+        height:280px;
+    }
+
+    .quote{
+        font-size:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HOME ================= -->
+
+<section id="home">
+
+<div class="card">
+
+<div class="heart">💗</div>
+
+<h1>
+Happy Birthday,<br>
+Khushi!
+</h1>
+
+<p class="bigText">
+To the world's best sister — this little surprise is made
+with endless love, beautiful memories and a heart full of wishes
+just for you. 🥹💗
+</p>
+
+<button onclick="goTo('wish')">
+OPEN MY WISH 💌
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= WISH ================= -->
+
+<section id="wish">
+
+<div class="card">
+
+<div class="heart">🎂</div>
+
+<h2>
+To My Wonderful Sister,<br>
+Khushi 💗
+</h2>
+
+<p class="bigText">
+You are not just my sister,
+you are one of the most precious people in my life.
+
+No matter how many times we tease each other,
+fight over silly things or annoy each other,
+deep down I will always be there for you.
+</p>
+
+<div class="quote">
+“Whenever life gets difficult,
+remember that you never have to face it alone.
+I will always support you,
+believe in you and stand beside you.” 🫂❤️
+</div>
+
+<p class="bigText">
+I am genuinely proud to call you my sister.
+You deserve all the happiness, success,
+love and beautiful moments this world has to offer.
+</p>
+
+<button onclick="goTo('special')">
+WHY YOU ARE SPECIAL ✨
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= SPECIAL ================= -->
+
+<section id="special">
+
+<div class="card">
+
+<h2>
+Why Khushi Is Special 💕
+</h2>
+
+<div class="reasons">
+
+<div class="reason">
+<h3>🌸 Your Beautiful Heart</h3>
+<p>
+Your kindness and care make the people around you
+feel loved and special.
+</p>
+</div>
+
+<div class="reason">
+<h3>🦋 Your Smile</h3>
+<p>
+Your smile can make even an ordinary day
+feel beautiful.
+</p>
+</div>
+
+<div class="reason">
+<h3>✨ Your Strength</h3>
+<p>
+Never stop believing in yourself.
+You are capable of achieving amazing things.
+</p>
+</div>
+
+<div class="reason">
+<h3>💗 Simply You</h3>
+<p>
+There is nobody else like you.
+That is what makes you truly special.
+</p>
+</div>
+
+</div>
+
+<button onclick="goTo('memories')">
+OUR MEMORIES 📸
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= MEMORIES ================= -->
+
+<section id="memories">
+
+<div class="card">
+
+<h2>
+Our Beautiful Memories 📸
+</h2>
+
+<p class="bigText">
+Every picture has a story,
+and every memory with you is something
+I will always keep close to my heart. 💗
+</p>
+
+<div class="gallery">
+
+<div class="photo">
+<img src="./khushi_1.jpg"
+     alt="Khushi memory 1"
+     onerror="this.parentElement.style.display='none'">
+<div class="caption">
+A beautiful memory ✨
+</div>
+</div>
+
+<div class="photo">
+<img src="./khushi_2.jpg"
+     alt="Khushi memory 2"
+     onerror="this.parentElement.style.display='none'">
+<div class="caption">
+Always smiling 💗
+</div>
+</div>
+
+<div class="photo">
+<img src="./khushi_3.jpg"
+     alt="Khushi memory 3"
+     onerror="this.parentElement.style.display='none'">
+<div class="caption">
+A special moment 🌸
+</div>
+</div>
+
+<div class="photo">
+<img src="./khushi_4.jpg"
+     alt="Khushi memory 4"
+     onerror="this.parentElement.style.display='none'">
+<div class="caption">
+Forever precious 🫶🏻
+</div>
+</div>
+
+</div>
+
+<button onclick="goTo('final')">
+ONE FINAL THOUGHT 💌
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= FINAL ================= -->
+
+<section id="final">
+
+<div class="card">
+
+<div class="heart">💝</div>
+
+<h2>
+My Deepest Wish<br>
+For You, Khushi
+</h2>
+
+<p class="bigText">
+May this new year of your life be filled with
+happiness, confidence, success, beautiful memories
+and everything your heart wishes for.
+</p>
+
+<p class="bigText">
+You deserve all the good things in this world.
+
+Keep smiling.
+Keep shining.
+Keep chasing your dreams.
+
+And whenever life feels difficult,
+remember that your brother will always be there
+to support you. 🥹🫂❤️
+</p>
+
+<div class="quote">
+You are truly the
+<b>WORLD'S BEST SISTER.</b> 💗
+</div>
+
+<button onclick="celebrate()">
+LET'S CELEBRATE! 🎉
+</button>
+
+<p id="celebrationText"
+   style="display:none;margin-top:20px;color:#ffd2e6;font-size:18px;">
+
+Happy Birthday, Khushi! 🎂💗✨<br>
+Love you forever, Sis! 🫂
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= MUSIC ================= -->
+
+<section id="musicSection">
+
+<div class="card">
+
+<div class="musicIcon">🎵</div>
+
+<h2>
+A Song For You 💗
+</h2>
+
+<p class="bigText">
+Play this special birthday song for Khushi.
+</p>
+
+<button onclick="openSong()">
+▶️ PLAY SONG
+</button>
+
+<p style="font-size:11px;margin-top:12px;opacity:.6;">
+The song opens on YouTube.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= QR ================= -->
+
+<section id="qr">
+
+<div class="card">
+
+<div class="heart">💗</div>
+
+<h2>
+Share The Surprise 📱
+</h2>
+
+<p class="bigText">
+Scan this QR code with another phone
+and open Khushi's birthday surprise. 💌
+</p>
+
+<div class="qrBox">
+<div id="qrcode"></div>
+</div>
+
+<p>
+Scan Me — Happy Birthday Khushi 💗
+</p>
+
+<button onclick="downloadQR()">
+DOWNLOAD QR 📥
+</button>
+
+</div>
+
+</section>
+
+
+<!-- CONFETTI -->
+
+<div id="confetti"></div>
+
+
+<script>
+
+/* SMOOTH SCROLL */
+
+function goTo(id){
+
+    document.getElementById(id)
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* YOUTUBE SONG */
+
+function openSong(){
+
+    window.open(
+        "https://youtu.be/yU6a161CvRc?si=lsPJ0n2oeWcICiFg",
+        "_blank"
+    );
+
+}
+
+
+/* CONFETTI */
+
+function celebrate(){
+
+    const box =
+        document.getElementById("confetti");
+
+    box.innerHTML="";
+    box.style.display="block";
+
+    const colors=[
+        "#ff5aa5",
+        "#ffd1e5",
+        "#ffffff",
+        "#c86cff",
+        "#ffb3d4"
+    ];
+
+    for(let i=0;i<150;i++){
+
+        const piece =
+            document.createElement("div");
+
+        piece.className="confettiPiece";
+
+        piece.style.left =
+            Math.random()*100+"%";
+
+        piece.style.background =
+            colors[
+                Math.floor(
+                    Math.random()*colors.length
+                )
+            ];
+
+        piece.style.animationDelay =
+            Math.random()*1.5+"s";
+
+        box.appendChild(piece);
+    }
+
+    document.getElementById(
+        "celebrationText"
+    ).style.display="block";
+
+    setTimeout(function(){
+
+        box.style.display="none";
+
+    },5000);
+
+}
+
+
+/* QR CODE */
+
+const script =
+document.createElement("script");
+
+script.src =
+"https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";
+
+script.onload=function(){
+
+    new QRCode(
+        document.getElementById("qrcode"),
+        {
+            text:window.location.href,
+            width:220,
+            height:220,
+            colorDark:"#5b2149",
+            colorLight:"#ffffff",
+            correctLevel:QRCode.CorrectLevel.H
+        }
+    );
+
+};
+
+document.head.appendChild(script);
+
+
+/* DOWNLOAD QR */
+
+function downloadQR(){
+
+    const canvas =
+        document.querySelector("#qrcode canvas");
+
+    if(!canvas){
+
+        alert("QR is loading...");
+        return;
+    }
+
+    const link =
+        document.createElement("a");
+
+    link.download =
+        "Khushi-Birthday-QR.png";
+
+    link.href =
+        canvas.toDataURL("image/png");
+
+    link.click();
+
+}
+
+</script>
+
+</body>
+</html>
+```
